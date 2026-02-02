@@ -1,0 +1,23 @@
+{
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Only pdflatex (Simple)",
+            "tools": [
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2 (Full)",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.formatting.latex": "latexindent"
+}

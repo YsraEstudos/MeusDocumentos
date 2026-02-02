@@ -1,0 +1,94 @@
+.dock-container {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    pointer-events: none;
+    /* Deixa clicar atrás nas laterais */
+}
+
+.dynamic-island {
+    background: rgba(44, 44, 46, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 40px;
+    padding: 8px 12px;
+    pointer-events: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    min-width: 140px;
+}
+
+.island-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.island-icon {
+    background: transparent;
+    border: none;
+    color: #86868b;
+    padding: 10px 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.island-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.island-icon.active {
+    background: #3a3a3c;
+    /* Dark Grey Highlight */
+    color: white;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 4px;
+}
+
+.separator {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 768px) {
+    .dock-container {
+        bottom: 20px;
+    }
+
+    .dynamic-island {
+        padding: 6px 10px;
+        /* Mais fino */
+        border-radius: 30px;
+        max-width: 90vw;
+        /* Garante que não sai da tela */
+        transform: scale(0.9);
+        /* Leve redução geral */
+    }
+
+    .island-icon {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    .label {
+        display: none !important;
+        /* Esconde rótulos (Logbook/Explorar) no mobile para economizar espaço, deixa só ícones */
+    }
+}

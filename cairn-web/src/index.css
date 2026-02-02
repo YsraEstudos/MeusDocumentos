@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+/* --- VARIÁVEIS BASE (Padrão AMOLED) --- */
+:root {
+  /* Cores de Fundo */
+  --bg-color: #000000;
+  --surface-color: #121212;
+  /* Levemente mais claro para cartões */
+  --surface-highlight: #1E1E1E;
+
+  /* Texto */
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --text-accent: #FFFFFF;
+
+  /* Cores de Destaque */
+  --accent-primary: #FFFFFF;
+  /* Minimalista monocromático */
+  --accent-glow: rgba(255, 255, 255, 0.2);
+
+  /* Bordas e Vidro */
+  --glass-bg: rgba(20, 20, 20, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.15);
+
+  /* Fontes */
+  --font-body: 'Inter', sans-serif;
+  --font-display: 'Inter', sans-serif;
+  /* No AMOLED preferimos sans-serif limpa */
+}
+
+/* --- TEMA: CAIRN CLASSIC (Papel Antigo) --- */
+[data-theme='classic'] {
+  --bg-color: #5D4037;
+  --surface-color: #FFF8E1;
+  /* Papel */
+  --surface-highlight: #F5F5DC;
+
+  --text-primary: #3E2723;
+  --text-secondary: #5D4037;
+  --text-accent: #D4AF37;
+
+  --accent-primary: #D4AF37;
+  --accent-glow: rgba(212, 175, 55, 0.3);
+
+  --glass-bg: rgba(255, 248, 225, 0.85);
+  --glass-border: rgba(93, 64, 55, 0.2);
+
+  --font-display: 'Cinzel', serif;
+}
+
+/* --- TEMA: GLACIAL WHITE (Mac Light) --- */
+[data-theme='glacial'] {
+  --bg-color: #F5F5F7;
+  --surface-color: #FFFFFF;
+  --surface-highlight: #F0F0F0;
+
+  --text-primary: #1D1D1F;
+  --text-secondary: #86868B;
+  --text-accent: #0071E3;
+
+  --accent-primary: #0071E3;
+  /* Apple Blue */
+  --accent-glow: rgba(0, 113, 227, 0.2);
+
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+/* --- ESTILOS GERAIS --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  min-height: 100vh;
+}
+
+.macos-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 20px 140px;
+}
+
+/* Cartões adaptáveis */
+.mac-card {
+  background: var(--surface-color);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  /* Sombra mais forte no dark */
+}
+
+/* Títulos adaptáveis */
+.mac-title {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.mac-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+/* Dynamic Island Adaptável */
+.dynamic-island {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.island-icon {
+  color: var(--text-secondary);
+}
+
+.island-icon.active,
+.island-icon:hover {
+  background: var(--accent-glow);
+  color: var(--text-primary);
+}
+
+/* --- MOBILE ADAPTATION --- */
+@media (max-width: 768px) {
+  .macos-container {
+    padding: 80px 16px 140px;
+    /* Menos margem lateral */
+  }
+
+  .mac-title {
+    font-size: 2rem;
+    /* Título menor */
+  }
+
+  .mac-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Ajuste para evitar que a ilha cubra conteúdo importante */
+  body {
+    padding-bottom: 40px;
+  }
+}
+
+/* --- UTILITIES --- */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

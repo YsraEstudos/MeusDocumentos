@@ -1,0 +1,99 @@
+.story-block {
+    background-color: white;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--cairn-gold);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.story-block:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.explanation-box {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--cairn-accent);
+    background-color: var(--cairn-paper);
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-style: italic;
+    overflow: hidden;
+}
+
+.explanation-box strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-style: normal;
+    color: var(--cairn-brown);
+}
+
+.text-content {
+    min-height: 80px;
+    position: relative;
+}
+
+.text-en {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--cairn-brown);
+    margin: 0;
+}
+
+.text-pt {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--cairn-accent);
+    font-weight: 500;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 99px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: transparent;
+    color: var(--cairn-gold);
+    border: 1px solid transparent;
+}
+
+.btn:hover {
+    background-color: var(--cairn-paper);
+}
+
+.btn-active {
+    background-color: var(--cairn-gold);
+    color: white;
+}
+
+.btn-active:hover {
+    background-color: #B59325;
+    /* Darker Gold */
+}
+
+.btn-active-brown {
+    background-color: var(--cairn-brown);
+    color: white;
+}
+
+.btn-active-brown:hover {
+    background-color: #3E2b24;
+}
