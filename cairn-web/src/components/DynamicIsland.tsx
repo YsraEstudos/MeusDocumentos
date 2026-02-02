@@ -1,11 +1,18 @@
 import { motion } from 'framer-motion';
 import { Book, Compass } from 'lucide-react';
-import ThemeSwitcher from './ThemeSwitcher';
+import { useNavigate, useLocation } from 'react-router-dom';
+import SettingsMenu from './SettingsMenu';
 import './DynamicIsland.css';
 
-const DynamicIsland = ({ activeTab, setActiveTab }) => {
+const DynamicIsland = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Determine active tab based on current path
+    const activeTab = location.pathname.includes('logbook') ? 'logbook' : 'history';
+
     return (
-        <div className="dock-container">
+        <nav className="dock-container">
             <motion.div
                 className="dynamic-island"
                 layout
@@ -16,7 +23,8 @@ const DynamicIsland = ({ activeTab, setActiveTab }) => {
                     {/* Navegação Principal */}
                     <button
                         className={`island-icon ${activeTab === 'history' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('history')}
+                        onClick={() => navigate('/history')}
+                        title="Explorar"
                     >
                         <Compass size={20} />
                         {activeTab === 'history' && <span className="label">Explorar</span>}
@@ -24,7 +32,8 @@ const DynamicIsland = ({ activeTab, setActiveTab }) => {
 
                     <button
                         className={`island-icon ${activeTab === 'logbook' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('logbook')}
+                        onClick={() => navigate('/logbook')}
+                        title="Logbook"
                     >
                         <Book size={20} />
                         {activeTab === 'logbook' && <span className="label">Logbook</span>}
@@ -32,12 +41,12 @@ const DynamicIsland = ({ activeTab, setActiveTab }) => {
 
                     <div className="separator"></div>
 
-                    {/* Seletor de Temas Integrado */}
-                    <ThemeSwitcher />
+                    {/* Menu de Configurações (Temas + Exportação) */}
+                    <SettingsMenu />
 
                 </div>
             </motion.div>
-        </div>
+        </nav>
     );
 };
 

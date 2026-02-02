@@ -1,11 +1,18 @@
-import { Moon, Sun, Scroll } from 'lucide-react';
+import { Moon, Sun, Scroll, LucideIcon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { motion } from 'framer-motion';
+import { AppTheme } from '../types';
+
+interface ThemeOption {
+    id: AppTheme;
+    icon: LucideIcon;
+    label: string;
+}
 
 const ThemeSwitcher = () => {
     const { theme, toggleTheme } = useTheme();
 
-    const themes = [
+    const themes: ThemeOption[] = [
         { id: 'amoled', icon: Moon, label: 'Amoled' },
         { id: 'classic', icon: Scroll, label: 'Classic' },
         { id: 'glacial', icon: Sun, label: 'Glacial' },

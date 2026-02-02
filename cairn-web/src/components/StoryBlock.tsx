@@ -3,12 +3,18 @@ import { Languages, Info } from 'lucide-react';
 import { useDisclosure } from '../hooks/useDisclosure';
 import '../styles/MacTheme.css';
 
-const StoryBlock = ({ textEn, textPt, explanation }) => {
+interface StoryBlockProps {
+    textEn: string;
+    textPt: string;
+    explanation: string;
+}
+
+const StoryBlock = ({ textEn, textPt, explanation }: StoryBlockProps) => {
     const translation = useDisclosure(false);
     const context = useDisclosure(false);
 
     return (
-        <div className="mac-card">
+        <article className="mac-card">
 
             {/* Área da Explicação */}
             <AnimatePresence>
@@ -29,7 +35,7 @@ const StoryBlock = ({ textEn, textPt, explanation }) => {
 
             {/* Texto Principal */}
             <div style={{ minHeight: '60px', marginBottom: '20px' }}>
-                <AnimatePresence mode='wait'>
+                <AnimatePresence mode='popLayout' initial={false}>
                     {!translation.isOpen ? (
                         <motion.p
                             key="en"
@@ -73,7 +79,7 @@ const StoryBlock = ({ textEn, textPt, explanation }) => {
                     Contexto
                 </button>
             </div>
-        </div>
+        </article>
     );
 };
 

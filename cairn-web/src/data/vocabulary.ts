@@ -1,4 +1,6 @@
-export const vocabulary = [
+import { VocabularyItem } from '../types';
+
+export const vocabulary: VocabularyItem[] = [
     { term: "Indeed", translation: "De fato, na verdade", context: "Confirmar ou dar ênfase a algo dito." },
     { term: "A couple", translation: "Um casal; alguns", context: "Refere-se geralmente a dois itens." },
     { term: "Spot", translation: "Avistar, notar", context: "Localizar algo visualmente." },

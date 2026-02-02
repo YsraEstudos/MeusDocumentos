@@ -1,11 +1,13 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, BookOpen, Languages, Info } from 'lucide-react';
+import { MapPin, BookOpen, Languages, Info, Home, FileText, AlertTriangle } from 'lucide-react';
 import StoryBlock from '../components/StoryBlock';
 import { mountainStories } from '../data/stories';
 import '../styles/MacTheme.css';
 
 const IconMap = {
-    BookOpen: BookOpen
+    BookOpen: BookOpen,
+    Home: Home,
+    FileText: FileText,
+    AlertTriangle: AlertTriangle
 };
 
 const HistoryPage = () => {

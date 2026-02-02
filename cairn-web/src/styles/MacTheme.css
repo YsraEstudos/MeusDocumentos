@@ -1,20 +1,21 @@
 /* Cartões Glassmorphism */
 .mac-card {
-    background: rgba(30, 30, 32, 0.7);
+    background: var(--surface-color);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: var(--text-primary);
 }
 
 .mac-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-glow);
 }
 
 /* Tipografia */
@@ -22,8 +23,7 @@
     font-size: 2.8rem;
     font-weight: 700;
     text-align: center;
-    background: linear-gradient(180deg, #fff, #a1a1aa);
-    /* Gradiente metálico */
+    background: linear-gradient(180deg, var(--text-primary), var(--text-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
@@ -32,7 +32,7 @@
 
 .mac-subtitle {
     text-align: center;
-    color: #86868b;
+    color: var(--text-secondary);
     font-size: 1.1rem;
     margin-bottom: 3rem;
     font-weight: 400;
@@ -43,16 +43,16 @@
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 2px;
-    color: #86868b;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
     display: block;
 }
 
 /* Botões Estilo Mac */
 .mac-btn {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
+    background: var(--surface-highlight);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -65,17 +65,18 @@
 }
 
 .mac-btn:hover {
-    background: white;
-    color: black;
+    background: var(--text-primary);
+    color: var(--bg-color);
 }
 
 .mac-btn.primary {
-    background: #2997ff;
-    /* Apple Blue */
+    background: var(--accent-primary);
+    color: white;
+    border: none;
 }
 
 .mac-btn.primary:hover {
-    background: #007aff;
+    filter: brightness(1.1);
 }
 
 /* Tabelas Minimalistas */
@@ -84,7 +85,7 @@
     grid-template-columns: 1fr 1fr 1.5fr;
     gap: 1.5rem;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--glass-border);
 }
 
 .mac-table-row:last-child {
@@ -93,15 +94,15 @@
 
 .term-text {
     font-weight: 600;
-    color: white;
+    color: var(--text-primary);
 }
 
 .trans-text {
-    color: #2997ff;
+    color: var(--accent-primary);
 }
 
 .context-text {
-    color: #86868b;
+    color: var(--text-secondary);
     font-size: 0.9rem;
 }
 
@@ -124,7 +125,7 @@
     /* Ajustes visuais para a lista focada em leitura */
     .term-text {
         font-size: 1.1rem;
-        color: var(--accent-primary);
+        color: var(--text-accent);
         /* Destaque na palavra */
     }
 
